@@ -1,6 +1,9 @@
 require_relative 'hotel'
+require_relative 'dynamic_access'
 
 class HotelChain
+  include DynamicAccess
+
   attr_accessor :hotels
 
   def initialize

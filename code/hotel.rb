@@ -1,6 +1,9 @@
 require_relative 'hotel/room'
+require_relative 'dynamic_access'
 
 class Hotel
+  include DynamicAccess
+
   attr_accessor :name, :rooms
 
     def initialize(hotel, rooms_list)
