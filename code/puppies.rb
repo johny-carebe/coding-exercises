@@ -19,7 +19,9 @@ class Puppies
 
       all_dog_links = raw_document.css('a.img-thumbnail')
 
-      links = all_dog_links.first.attributes['href'].value
+      all_dog_links.each do |link|
+        links << link.attributes['href'].value
+      end
     end
 
     links
