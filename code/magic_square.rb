@@ -4,10 +4,14 @@ class MagicSquare
     # checks if it's a magic square and returns either true or false depending on the result.
     # sequence (https://en.wikipedia.org/wiki/Magic_square)
     def validate(square)
-       all_row_sums_equal?(square) && all_diagonal_sums_equal?(square)
+      is_a_square?(square) && all_row_sums_equal?(square) && all_diagonal_sums_equal?(square)
     end
 
     private
+
+    def is_a_square?(square)
+      square.length == square[0].length
+    end
 
     def all_row_sums_equal?(square)
       sum_by_rows_list = sum_by_rows(square)
@@ -30,9 +34,9 @@ class MagicSquare
 
     def secondary_diagonal_sum(square)
       square_range(square).sum do |column|
-        left_to_right_row = -column - 1
+        right_to_left_row = -column - 1
 
-        square[left_to_right_row][column]
+        square[right_to_left_row][column]
       end
     end
 
