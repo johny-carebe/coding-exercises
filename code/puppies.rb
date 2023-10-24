@@ -17,10 +17,13 @@ class Puppies
     Dir.glob("#{DIRECTORY}/paws/*.html") do |file_path|
       raw_document = Nokogiri::HTML(File.open(file_path))
 
-      all_dog_links = raw_document.css('a.img-thumbnail')
+      all_dogs_thumbnails = raw_document.css('a.img-thumbnail')
 
-      all_dog_links.each do |link|
-        links << link.attributes['href'].value
+      all_dogs_thumbnails.each do |thumbnail|
+        female_baby = thumbnail.text.include?("Female - Baby")
+        puppie_link = thumbnail.attributes['href'].value
+
+        links << puppie_link if female_baby
       end
     end
 
