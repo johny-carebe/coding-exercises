@@ -51,10 +51,22 @@ describe MagicSquare do
       it { is_expected.to eq false }
     end
 
-    xcontext 'when square 3x3 have equal sum for rows and columns but not for diagonals' do
-      # I tried to make a test case for it, but I don't think is possible to have
-      # a square that sums columns and rows with the same value but don't sum them
-      # for diagonals, so I'm skipping it
+    context 'when square 3x3 have equal sum for rows and columns but not for diagonals' do
+      square = [
+        [3, 2, 3],
+        [2, 3, 3],
+        [3, 3, 2]
+      ]
+
+      subject { MagicSquare.validate(square) }
+
+      it { is_expected.to eq false }
     end
+
+    xcontext 'when square 3x3 have equal sum for rows and equal sum for columns,
+              but not same for both' do
+      # Skipping this one as is matematically impossible
+    end
+
   end
 end
