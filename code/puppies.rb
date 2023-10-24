@@ -7,26 +7,14 @@
 #
 
 require 'nokogiri'
+require_relative 'puppies/links_list_service'
 
 class Puppies
   DIRECTORY = ::File.join(::File.dirname(__FILE__), '../data')
 
-  def self.parse
-    links = []
-
-    Dir.glob("#{DIRECTORY}/paws/*.html") do |file_path|
-      raw_document = Nokogiri::HTML(File.open(file_path))
-
-      all_dogs_thumbnails = raw_document.css('a.img-thumbnail')
-
-      all_dogs_thumbnails.each do |thumbnail|
-        female_baby = thumbnail.text.include?("Female - Baby")
-        puppie_link = thumbnail.attributes['href'].value
-
-        links << puppie_link if female_baby
-      end
+  class << self
+    def parse
+      LinksListService.new(DIRECTORY).call
     end
-
-    links
   end
 end
