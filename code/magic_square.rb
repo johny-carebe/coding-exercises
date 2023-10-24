@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class MagicSquare
   class << self
     # Implement a method that takes a 2D array,
     # checks if it's a magic square and returns either true or false depending on the result.
     # sequence (https://en.wikipedia.org/wiki/Magic_square)
     def validate(square)
-      is_a_square?(square) && all_row_sums_equal?(square) && all_diagonal_sums_equal?(square)
+      a_square?(square) && all_row_sums_equal?(square) && all_diagonal_sums_equal?(square)
     end
 
     private
 
-    def is_a_square?(square)
+    def a_square?(square)
       square.length == square[0].length
     end
 
@@ -25,7 +27,7 @@ class MagicSquare
     end
 
     def sum_by_rows(square)
-      square.map { |row| row.sum }
+      square.map(&:sum)
     end
 
     def main_diagonal_sum(square)

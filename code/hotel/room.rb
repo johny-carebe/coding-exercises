@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'room/amenity'
 require_relative '../dynamic_access'
 

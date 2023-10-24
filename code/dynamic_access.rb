@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DynamicAccess
   def [](key)
     get_attribute(key)
