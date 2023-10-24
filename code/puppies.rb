@@ -5,9 +5,16 @@
 #
 # Hint: You will likely want to use an HTML parser like Nokogiri and use the page's pagination to iterate each page.
 #
+
+require 'nokogiri'
+require_relative 'puppies/links_list_service'
+
 class Puppies
   DIRECTORY = ::File.join(::File.dirname(__FILE__), '../data')
 
-  def self.parse
+  class << self
+    def parse
+      LinksListService.new(DIRECTORY).call
+    end
   end
 end
