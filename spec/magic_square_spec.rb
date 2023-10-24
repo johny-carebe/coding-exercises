@@ -67,6 +67,5 @@ describe MagicSquare do
               but not same for both' do
       # Skipping this one as is matematically impossible
     end
-
   end
 end
