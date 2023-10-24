@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('code/magic_square')
 
 describe MagicSquare do
@@ -17,7 +19,7 @@ describe MagicSquare do
     end
 
     context 'valid square 4x4' do
-       let(:square) do
+      let(:square) do
         [
           [16, 3, 2, 13],
           [5, 10, 11, 8],

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Puppies
   class LinksListService
     def initialize(directory)
@@ -35,7 +37,7 @@ class Puppies
     end
 
     def female_baby?(thumbnail)
-      thumbnail.text.include?("Female - Baby")
+      thumbnail.text.include?('Female - Baby')
     end
   end
 end

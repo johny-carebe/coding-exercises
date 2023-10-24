@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path('code/hotel_parser')
 
 describe HotelParser do

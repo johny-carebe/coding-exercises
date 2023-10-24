@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require_relative 'hotel_chain'
 
@@ -11,7 +13,7 @@ class HotelParser
     raw_data = YAML.load_file(filename)
     hotel_chain = HotelChain.new
 
-    raw_data["hotels"].each { |hotel| hotel_chain.add_hotel(hotel["name"], hotel["rooms"]) }
+    raw_data['hotels'].each { |hotel| hotel_chain.add_hotel(hotel['name'], hotel['rooms']) }
 
     hotel_chain
   end
